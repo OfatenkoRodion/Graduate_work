@@ -10,6 +10,6 @@ public class JavaCodeSimpleTest {
         this.stringCode = stringCode;
     }
     public String metricOfLenght(){
-        return "Your string lenght is:"+String.valueOf(stringCode.length())+" metric passed";
+        return String.valueOf(stringCode.length());
     }
 }

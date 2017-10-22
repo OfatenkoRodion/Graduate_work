@@ -16,5 +16,4 @@ public class Controller {
 
         return javaCodeSimpleTest.metricOfLenght();
     }
-
 }
