@@ -25,10 +25,10 @@ public class DownloadFile
             Files.copy(inputStream, Paths.get(path+fileName), StandardCopyOption.REPLACE_EXISTING);
         }
         List<String> lines = Files.readAllLines(Paths.get(path+fileName), StandardCharsets.UTF_8);
-        for(String line: lines)
+        /*for(String line: lines)
         {
             System.out.println(line);
-        }
+        }*/
     }
 
     private static String getFileName(String downloadURL) throws UnsupportedEncodingException
