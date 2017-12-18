@@ -2,7 +2,11 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Mail" removed="false">
+          <file>file://$MODULE_DIR$/src/main/Spring-Mail.xml</file>
+        </fileset>
+      </configuration>
     </facet>
     <facet type="web" name="Web">
       <configuration>
@@ -40,5 +44,7 @@
     <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.1.0-M1" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mail:1.4" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
   </component>
 </module>
