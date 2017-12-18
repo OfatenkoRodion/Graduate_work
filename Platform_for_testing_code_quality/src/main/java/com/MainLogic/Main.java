@@ -1,6 +1,9 @@
 package com.MainLogic;
 
 
+import com.MainLogic.dao.SenderSsl;
+import com.MainLogic.dao.SenderTls;
+
 public class Main
 {
     private static SenderTls tlsSender = new SenderTls("justmadnessyo@gmail.com", "");
