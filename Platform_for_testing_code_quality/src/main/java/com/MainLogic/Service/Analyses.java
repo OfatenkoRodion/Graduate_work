@@ -1,7 +1,7 @@
 package com.MainLogic.Service;
 
-import com.MainLogic.dao.DownloadFile;
-import com.MainLogic.dao.Order;
+import com.MainLogic.date.DownloadFile;
+import com.MainLogic.date.Order;
 
 import java.io.IOException;
 

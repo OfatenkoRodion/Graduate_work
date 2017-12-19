@@ -1,4 +1,4 @@
-package com.MainLogic.dao;
+package com.MainLogic.date;
 
 public class Order
 {
