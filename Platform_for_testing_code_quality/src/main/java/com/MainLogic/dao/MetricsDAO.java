@@ -52,4 +52,25 @@ public class MetricsDAO
         }
         return  metrics;
     }
+
+    public static HashSet<Metrics> getMetricsByLanguage(String language) throws ClassNotFoundException, SQLException
+    {
+        HashSet<Metrics> metrics=new HashSet<>();
+        Statement statement = getConnection().createStatement();
+
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM METRICS WHERE id_language=(SELECT id FROM LANGUAGE WHERE name='"+language+"')");
+
+        while (resultSet.next())
+        {
+            int id_lang=resultSet.getInt(2);
+            String name=resultSet.getString(3);
+            String description=resultSet.getString(4);
+            Metrics mts=new Metrics();
+            mts.setId_language(id_lang);
+            mts.setName(name);
+            mts.setDescription(description);
+            metrics.add(mts);
+        }
+        return  metrics;
+    }
 }
