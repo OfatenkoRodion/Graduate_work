@@ -25,7 +25,7 @@ public class Main
             mm.setId_language(2);
             MetricsDAO.addMetrics(mm);*/
 
-           HashSet<Metrics> mms= MetricsDAO.getMetricsByLanguage("C#");
+           HashSet<Metrics> mms= MetricsDAO.getMetricsByLanguage("Java");
 
            for (Metrics mtr: mms)
                System.out.println(mtr.getName()+" "+mtr.getDescription()+" "+mtr.getId_language());
