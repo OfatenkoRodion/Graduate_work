@@ -64,27 +64,23 @@ public class Controller
     @Async
     @RequestMapping(value = "/getListMetrics",method = RequestMethod.PUT)
     @ResponseBody
-    public Future<HashSet<Metrics>> getListMetrics(HttpServletRequest servletRequest)
+    public DeferredResult<HashSet<Metrics>> getListMetrics(HttpServletRequest servletRequest)
     {
-        try
-        {
-            String language = MyConvertor.HttpServletRequestToString(servletRequest);
-            HashSet<Metrics> hs=MetricsDAO.getMetricsByLanguage(language);
-            return new AsyncResult<>(hs);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        catch (SQLException e) {
-
-            e.printStackTrace();
-        }
-        catch (ClassNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-        return null;
+        DeferredResult<HashSet<Metrics>> defResult = new DeferredResult<>();
+        new Thread(() -> {
+            try
+            {
+                String language = MyConvertor.HttpServletRequestToString(servletRequest);
+                HashSet<Metrics> hs=MetricsDAO.getMetricsByLanguage(language);
+                defResult.setResult(hs);
+            }
+            catch (Exception e)
+            {
+               e.printStackTrace();
+                defResult.setResult(null);
+            }
+        }).start();
+        return defResult;
     }
     @Async
     @RequestMapping(value = "/getTest5",method = RequestMethod.PUT)
@@ -92,17 +88,17 @@ public class Controller
     @ResponseBody
     Future<String> handleTestRequest ()
     {
-        return new AsyncResult<>("hello");
+        return new AsyncResult<>("hello1");
     }
-
 
     @RequestMapping(value = "/getTest6",method = RequestMethod.PUT)
     @ResponseBody
-    public DeferredResult<String> get() {
+    public DeferredResult<String> get()
+    {
         DeferredResult<String> defResult = new DeferredResult<>();
 
         new Thread(() -> {
-            String apiResponse = callApi("hello");
+            String apiResponse = callApi("hello2");
             defResult.setResult(apiResponse);
         }).start();
 
