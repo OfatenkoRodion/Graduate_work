@@ -12,7 +12,9 @@ public class MetricsDAO
     public static String createTable() throws ClassNotFoundException, SQLException
     {
         Statement statement =  getAzureConnection().createStatement();
-        statement.executeUpdate("CREATE TABLE METRICS(id INTEGER AUTO_INCREMENT PRIMARY KEY ,id_language INTEGER, name TEXT NOT NULL,description TEXT NOT NULL, FOREIGN KEY(id_language) REFERENCES LANGUAGE(id) );");
+        // for local connection
+        //statement.executeUpdate("CREATE TABLE METRICS(id INTEGER AUTO INCREMENT PRIMARY KEY ,id_language INTEGER, name TEXT NOT NULL,description TEXT NOT NULL, FOREIGN KEY(id_language) REFERENCES LANGUAGE(id) );");
+        statement.executeUpdate("CREATE TABLE METRICS(id INTEGER  PRIMARY KEY IDENTITY (1,1),id_language INTEGER, name TEXT NOT NULL,description TEXT NOT NULL, FOREIGN KEY(id_language) REFERENCES LANGUAGE(id) );");
 
         return "Created";
     }
@@ -27,7 +29,8 @@ public class MetricsDAO
     {
         Statement statement =  getAzureConnection().createStatement();
 
-        String sql="INSERT INTO METRICS SET id_language='"+metrics.getId_language()+"',name='"+metrics.getName()+"',description='"+metrics.getDescription()+"'";
+        //String sql="INSERT INTO METRICS SET id_language='"+metrics.getId_language()+"',name='"+metrics.getName()+"',description='"+metrics.getDescription()+"'";
+        String sql="INSERT INTO METRICS  VALUES ('"+metrics.getId_language()+"','"+metrics.getName()+"','"+metrics.getDescription()+"')";
         statement.executeUpdate(sql);
 
         return "Added";

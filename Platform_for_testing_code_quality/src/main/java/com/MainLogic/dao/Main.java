@@ -9,7 +9,15 @@ public class Main
     {
         try
         {
-            /*Metrics mm=new Metrics();
+           /*HashSet<Metrics> mms= MetricsDAO.getMetricsByLanguage("Java");
+
+           for (Metrics mtr: mms)
+               System.out.println(mtr.getName()+" "+mtr.getDescription()+" "+mtr.getId_language());*/
+
+           LanguageDAO.createTable();
+           MetricsDAO.createTable();
+
+            Metrics mm=new Metrics();
             mm.setDescription("des0");
             mm.setName("mm0");
             mm.setId_language(1);
@@ -23,12 +31,7 @@ public class Main
             mm.setDescription("des3");
             mm.setName("mm2");
             mm.setId_language(2);
-            MetricsDAO.addMetrics(mm);*/
-
-           HashSet<Metrics> mms= MetricsDAO.getMetricsByLanguage("Java");
-
-           for (Metrics mtr: mms)
-               System.out.println(mtr.getName()+" "+mtr.getDescription()+" "+mtr.getId_language());
+            MetricsDAO.addMetrics(mm);
 
         }
         catch (ClassNotFoundException e)

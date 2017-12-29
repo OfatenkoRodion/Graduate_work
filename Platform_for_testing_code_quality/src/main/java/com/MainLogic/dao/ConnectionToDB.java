@@ -9,7 +9,7 @@ public class ConnectionToDB
     public static Connection getAzureConnection() throws ClassNotFoundException, SQLException
     {
         String userName="Rodion";
-        String password="";
+        String password="f u";
         String connectionURL = "jdbc:sqlserver://ofatenko.database.windows.net:1433;database=TestBase2;user=Rodion@ofatenko;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(connectionURL,userName,password);
